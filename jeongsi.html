@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>정시 퇴근 — 개인정보처리방침</title>
-<meta name="description" content="「정시 퇴근」은 개인정보를 수집하지 않습니다. 기록은 전부 기기 안에만 남습니다.">
+<meta name="description" content="「정시 퇴근」은 이름·연락처 등을 수집하지 않습니다. 기록은 기기 안에만 남고, 선택형 보상 광고(Google AdMob)를 볼 때만 광고 식별자 등이 Google 로 전송됩니다.">
 <meta name="theme-color" content="#0b0e14">
 <link rel="icon" href="store/icon-192.png" sizes="192x192">
 <style>
@@ -69,16 +69,19 @@ footer{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);
   </div>
 
   <section id="ko">
-    <div class="lead"><b>이 게임은 개인정보를 수집하지 않습니다.</b><br>
-      게임이 서버로 보내는 것이 없습니다. 기록은 전부 이용자의 기기 안에만 남습니다.</div>
+    <div class="lead"><b>이 게임은 이름·연락처 같은 개인정보를 수집하지 않습니다.</b><br>
+      게임 기록은 이용자의 기기 안에만 남고, 개발자의 서버로 보내는 것이 없습니다. 인터넷으로 나가는 것은
+      「광고 보고 이어하기」에 쓰는 Google AdMob 보상형 광고 하나뿐이며(7항), 광고는 이용자가 직접 고를 때만 재생됩니다.</div>
 
     <h2>1. 수집하는 개인정보</h2>
-    <p>없습니다. 이름·이메일·전화번호·주소·생년월일·성별·기기식별자·광고식별자·위치정보를
-      포함해 어떤 개인정보도 수집하지 않습니다. 계정을 만들지 않으며 로그인이 없습니다.</p>
+    <p>개발자는 이름·이메일·전화번호·주소·생년월일·성별·위치정보를 수집하지 않습니다.
+      계정을 만들지 않으며 로그인이 없고, 개발자의 서버로 보내는 정보도 없습니다.
+      다만 게임에 들어 있는 광고 SDK(Google AdMob)가 광고를 불러오고 보여 주는 과정에서 광고 ID·IP 주소 등을
+      Google 로 전송하며, 이는 7항에서 설명합니다. 이 정보는 Google 이 처리하고 개발자는 받지 않습니다.</p>
 
     <h2>2. 기기에 저장되는 것</h2>
     <p>게임은 앱 안의 로컬 저장소(localStorage)에만 다음 네 가지를 남깁니다.
-      이 값들은 게임이 기기 밖으로 보내지 않습니다.</p>
+      이 값들은 게임이 기기 밖으로 보내지 않습니다(광고 SDK 는 7항의 정보만 보냅니다).</p>
     <table>
       <tr><th>저장 키</th><th>담는 것</th></tr>
       <tr><td><code>jeongsi.save.v1</code></td><td>경력 점수, 최고 기록, 출근 일수(이야기 진도),
@@ -98,10 +101,11 @@ footer{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);
       앱을 삭제해도 함께 지워집니다.</p>
 
     <h2>3. 네트워크 통신</h2>
-    <p>게임은 실행 중 외부로 어떤 요청도 보내지 않습니다. 글꼴·소리·그림을 포함한 모든 자원이
-      앱 안에 들어 있어 인터넷 연결 없이 동작합니다.</p>
-    <p>안드로이드 앱 설정에는 인터넷 권한(<code>INTERNET</code>)이 선언되어 있습니다. 이는 앱 틀(Capacitor)이
-      기본으로 넣는 권한이며, 게임은 이 권한으로 외부와 통신하지 않습니다.</p>
+    <p>게임 본체는 외부로 요청을 보내지 않습니다. 글꼴·소리·그림을 포함한 모든 자원이 앱 안에 들어 있어
+      인터넷 연결 없이 동작합니다.</p>
+    <p>예외는 광고뿐입니다. 안드로이드 앱에는 인터넷 권한(<code>INTERNET</code>)과 광고 관련 권한이 선언되어 있고,
+      인터넷이 연결된 경우 광고 SDK(Google AdMob)가 이어하기용 보상형 광고를 요청하고 재생하기 위해 Google 서버와
+      암호화 통신(TLS)을 합니다. 인터넷이 없으면 광고 없이 게임이 그대로 진행됩니다.</p>
 
     <h2>4. 이용자가 직접 하는 공유</h2>
     <p>결과 화면의 「오늘 한 장 남기기」를 누르면, 그날 기록을 그린 그림 한 장과 짧은 글(「앱 스토어에서 정시 퇴근 검색」
@@ -121,23 +125,45 @@ footer{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);
     <table>
       <tr><th>권한</th><th>쓰는 곳</th></tr>
       <tr><td>진동 (<code>VIBRATE</code>)</td><td>맞을 때·보스 등장·진화 때 짧은 진동. 설정에서 끌 수 있습니다</td></tr>
-      <tr><td>인터넷 (<code>INTERNET</code>)</td><td>쓰지 않습니다(3항)</td></tr>
+      <tr><td>인터넷 (<code>INTERNET</code>), 네트워크 상태 (<code>ACCESS_NETWORK_STATE</code>)</td><td>광고 불러오기(3항·7항)</td></tr>
+      <tr><td>광고 ID (<code>AD_ID</code>), Android 광고 서비스 (<code>ACCESS_ADSERVICES_AD_ID</code>·<code>_ATTRIBUTION</code>·<code>_TOPICS</code>)</td><td>광고 SDK 가 광고 제공·측정·부정 클릭 방지에 사용(7항)</td></tr>
+      <tr><td>기기 절전 해제 (<code>WAKE_LOCK</code>), 포그라운드 서비스 (<code>FOREGROUND_SERVICE</code>)</td><td>광고·Google Play 서비스 라이브러리에 포함된 권한. 게임은 따로 쓰지 않습니다</td></tr>
     </table>
     <p>위치·카메라·마이크·연락처·저장소 읽기 권한을 요청하지 않습니다.</p>
 
-    <h2>7. 제3자 제공·위탁</h2>
-    <p>없습니다. 광고 네트워크, 분석 도구(애널리틱스), 크래시 리포터, 소셜 로그인,
-      결제 모듈을 일절 사용하지 않습니다.</p>
+    <h2>7. 광고 — 제3자(Google) 처리</h2>
+    <p>이 게임은 쓰러졌을 때 「광고 보고 이어하기」를 위해 <b>선택형 보상 광고</b>를 씁니다. 광고는
+      <b>이용자가 단추를 직접 누를 때만 재생</b>되고, 한 판에 한 번이며, 보지 않아도 게임을 계속할 수 있습니다.
+      광고는 Google AdMob(Google LLC)이 제공하며, 인터넷이 연결되어 있으면 앱이 판을 시작할 때 이어하기용 광고를
+      미리 불러와 둡니다(재생은 아닙니다). 광고를 요청하거나 재생할 때 Google 광고 SDK 가 처리하는 정보는
+      Google 이 공개한 바에 따라 다음과 같습니다.</p>
+    <ul>
+      <li>광고 ID(Android 광고 ID)·앱 세트 ID 등 기기 식별자</li>
+      <li>IP 주소(대략적인 위치 추정에 쓰일 수 있음)</li>
+      <li>앱 실행·탭·동영상 시청 등 광고와 관련된 상호작용</li>
+      <li>앱·SDK 성능 진단 정보</li>
+    </ul>
+    <p>이 정보는 전송 중 암호화(TLS)되며 광고 제공·측정·분석, 부정 클릭(사기) 방지에 쓰입니다. 자세한 내용은 Google 정책
+      (<code>https://policies.google.com/technologies/ads</code>)을 따릅니다. 이 게임은 <b>만 18세 이상</b>을 대상으로 하며,
+      아동 대상 광고 처리는 하지 않습니다. 광고 등급 상한과 민감한 광고 카테고리 차단은 개발자의 AdMob 계정 설정으로 관리합니다.
+      개발자는 이 정보를 받지 않으며, 개인정보를 판매하지 않습니다.</p>
+    <p><b>광고 ID 재설정·맞춤 광고 끄기:</b> 휴대폰 설정 → Google → 광고(기기에 따라 설정 → 개인정보 보호 → 광고)에서
+      광고 ID 를 삭제·재설정하고 광고 맞춤설정을 끌 수 있습니다. 그 외의 제3자 제공·위탁은 없으며, 분석 도구(애널리틱스),
+      크래시 리포터, 소셜 로그인, 결제 모듈은 쓰지 않습니다.</p>
 
     <h2>8. 아동의 개인정보</h2>
-    <p>수집하는 개인정보가 없으므로 만 14세 미만 아동으로부터 수집하는 정보도 없습니다.</p>
+    <p>이 게임은 만 18세 이상을 대상으로 합니다. 개발자는 이름·연락처 등을 수집하지 않으며, 만 14세 미만 아동의
+      개인정보를 고의로 수집하지 않습니다. 광고 등급은 AdMob 계정 설정으로 제한합니다(7항).</p>
 
     <h2>9. 이용자의 권리</h2>
-    <p>수집·보관하는 개인정보가 없어 열람·정정·삭제를 요청할 대상이 없습니다.
-      기기에 저장된 게임 기록은 2항의 방법으로 이용자가 언제든 직접 지울 수 있습니다.</p>
+    <p>개발자가 수집·보관하는 개인정보는 없어 개발자에게 열람·정정·삭제를 요청할 대상이 없습니다.
+      기기에 저장된 게임 기록은 2항의 방법으로 이용자가 언제든 직접 지울 수 있고, 광고 관련 정보는 7항의 방법으로
+      광고 ID 를 재설정·삭제하거나 Google 에 직접 요청할 수 있습니다(<code>https://policies.google.com/privacy</code>).</p>
 
     <h2>10. 방침의 변경</h2>
     <p>이 방침이 바뀌면 시행일을 갱신하고 변경 내용을 이 문서에 적습니다.</p>
+    <p><b>2026-10-26 개정(광고 추가):</b> 「광고 보고 이어하기」(Google AdMob 보상형 광고)를 넣으면서 「외부로 보내는 데이터 없음」 문구를
+      고쳤습니다. 광고 SDK 가 처리하는 정보(7항), 인터넷·광고 관련 권한(6항), 국외 이전(12항), 광고 ID 재설정 방법, 대상 연령(만 18세 이상)을 추가했습니다.</p>
     <p><b>2026-10-26 개정(이전 판 2026-10-22):</b> 4항의 「이 그림에는 개인정보가 들어가지 않습니다」를 바로잡았습니다.
       설정에서 적은 「내 한 줄」이 공유 그림에 함께 그려지며, 그림은 이용자가 직접 공유할 때만 기기 밖으로 나갑니다.
       설정 화면에 실명·개인정보를 적지 말라는 안내를 넣었습니다.</p>
@@ -146,7 +172,15 @@ footer{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);
     <p><a href="mailto:cmg9722@gmail.com">cmg9722@gmail.com</a></p>
 <section data-added="2026-10-22">
 <h2>12. 추가 고지 (개인정보 보호법 제30조 항목)</h2>
-<h3>개인정보 보호책임자</h3>
+<h3>개인정보의 국외 이전 (광고)</h3>
+<table>
+<tr><th>이전받는 자</th><td>Google LLC (미국) · 문의 https://policies.google.com/privacy</td></tr>
+<tr><th>이전 항목</th><td>광고 ID·앱 세트 ID 등 기기 식별자, IP 주소, 광고 관련 상호작용(실행·탭·동영상 시청), 앱·SDK 진단 정보</td></tr>
+<tr><th>이전 시기·방법</th><td>광고를 불러오거나 볼 때(판 시작 시 미리 불러오기 포함) 앱 안의 Google Mobile Ads SDK 가 암호화 통신(TLS)으로 전송</td></tr>
+<tr><th>이용 목적</th><td>광고 제공·측정, 부정 클릭 방지, 분석</td></tr>
+<tr><th>보유 기간</th><td>Google 개인정보처리방침에 따름</td></tr>
+<tr><th>거부 방법과 불이익</th><td>기기 설정에서 광고 ID 를 삭제하거나 재설정하고 맞춤 광고를 끌 수 있습니다. 인터넷을 끄면 전송되지 않으며, 보상형 광고는 선택 사항이라 게임 진행에 필수가 아닙니다(「광고 보고 이어하기」만 쓰지 못합니다).</td></tr>
+</table><h3>개인정보 보호책임자</h3>
 <ul>
 <li>성명: 조명근 · 직책: 대표</li>
 <li>연락처: cmg9722@gmail.com</li>
@@ -164,15 +198,17 @@ footer{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);
   </section>
 
   <section id="en" hidden>
-    <div class="lead"><b>This game does not collect personal data.</b><br>
-      The game sends nothing to any server. Your records stay on your device.</div>
+    <div class="lead"><b>This game does not collect your name, contact details or similar personal data.</b><br>
+      Your records stay on your device and nothing is sent to the developer's servers. The only thing that goes out over the internet
+      is the Google AdMob rewarded ad used for "Watch an ad to continue" (section 7), and an ad plays only when you choose it.</div>
 
     <h2>1. Personal data we collect</h2>
-    <p>None. We do not collect your name, email, phone number, address, date of birth, gender,
-      device identifiers, advertising ID or location. There is no account and no login.</p>
+    <p>The developer does not collect your name, email, phone number, address, date of birth, gender or location.
+      There is no account and no login, and nothing is sent to the developer's servers. However, the ads SDK built into the game (Google AdMob)
+      sends your advertising ID, IP address and similar data to Google when it loads and shows an ad (section 7). Google processes that data; the developer does not receive it.</p>
 
     <h2>2. What is stored on your device</h2>
-    <p>The game keeps four entries in the app's local storage (localStorage). The game never sends them off the device.</p>
+    <p>The game keeps four entries in the app's local storage (localStorage). The game never sends them off the device (the ads SDK sends only the data described in section 7).</p>
     <table>
       <tr><th>Key</th><th>What it holds</th></tr>
       <tr><td><code>jeongsi.save.v1</code></td><td>Career points, best records, days worked (story progress),
@@ -192,10 +228,11 @@ footer{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);
       Uninstalling the app deletes it too.</p>
 
     <h2>3. Network</h2>
-    <p>The game makes no outside requests while running. Fonts, sounds and images are all inside the app,
+    <p>The game itself makes no outside requests. Fonts, sounds and images are all inside the app,
       and it works without an internet connection.</p>
-    <p>The Android app declares the <code>INTERNET</code> permission. It is included by default by the app
-      framework (Capacitor); the game does not use it to communicate with anything.</p>
+    <p>The one exception is advertising. The Android app declares the <code>INTERNET</code> permission and ad-related permissions; when you are online,
+      the ads SDK (Google AdMob) talks to Google servers over an encrypted connection (TLS) to request and play the rewarded "continue" ad.
+      With no connection the game simply runs without ads.</p>
 
     <h2>4. Sharing you start yourself</h2>
     <p>When you tap "Save today's card" on the result screen, the game draws one image of your day plus a short
@@ -214,22 +251,49 @@ footer{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);
     <table>
       <tr><th>Permission</th><th>Used for</th></tr>
       <tr><td>Vibration (<code>VIBRATE</code>)</td><td>Short buzz on hits, boss entrances and evolutions. Can be turned off in Settings</td></tr>
-      <tr><td>Internet (<code>INTERNET</code>)</td><td>Not used (section 3)</td></tr>
+      <tr><td>Internet (<code>INTERNET</code>), network state (<code>ACCESS_NETWORK_STATE</code>)</td><td>Loading ads (sections 3 and 7)</td></tr>
+      <tr><td>Advertising ID (<code>AD_ID</code>) and Android Ad Services (<code>ACCESS_ADSERVICES_AD_ID</code>, <code>_ATTRIBUTION</code>, <code>_TOPICS</code>)</td><td>Used by the ads SDK to serve and measure ads and prevent fraud (section 7)</td></tr>
+      <tr><td>Wake lock (<code>WAKE_LOCK</code>), foreground service (<code>FOREGROUND_SERVICE</code>)</td><td>Included by the ads / Google Play services libraries; the game does not use them itself</td></tr>
     </table>
     <p>The app does not request location, camera, microphone, contacts or storage-reading permissions.</p>
 
-    <h2>7. Third parties</h2>
-    <p>None. No ad networks, analytics, crash reporters, social login or payment modules.</p>
+    <h2>7. Advertising: processing by a third party (Google)</h2>
+    <p>When you fall, the game offers an <b>optional rewarded ad</b> for "Watch an ad to continue". The ad plays
+      <b>only when you tap the button yourself</b>, at most once per run, and you can keep going without it.
+      Ads are provided by Google AdMob (Google LLC). When you are online the app preloads the "continue" ad at the start of a run (loading only, not playing).
+      When an ad is requested or played, the Google ads SDK processes the following, as published by Google:</p>
+    <ul>
+      <li>Device identifiers such as the Android advertising ID and app set ID</li>
+      <li>IP address (may be used to estimate general location)</li>
+      <li>Ad-related interactions such as app launches, taps and video views</li>
+      <li>Diagnostic information about app and SDK performance</li>
+    </ul>
+    <p>This data is encrypted in transit (TLS) and used to serve, measure and analyse ads and to prevent fraud, under Google's policies
+      (<code>https://policies.google.com/technologies/ads</code>). The game is intended for users <b>aged 18 and over</b> and is not treated as child-directed. The maximum ad content rating and blocking of sensitive ad categories are managed in the developer's AdMob account settings. The developer does not receive this data and does not sell personal information.</p>
+    <table>
+      <tr><th colspan="2">Transfer abroad (ads)</th></tr>
+      <tr><th>Recipient</th><td>Google LLC (United States) · contact: https://policies.google.com/privacy</td></tr>
+      <tr><th>Items</th><td>Advertising ID / app set ID and similar device identifiers, IP address, ad interactions (launch, taps, video views), app and SDK diagnostics</td></tr>
+      <tr><th>When and how</th><td>When an ad is loaded or played (including preloading at the start of a run), sent by the Google Mobile Ads SDK in the app over TLS</td></tr>
+      <tr><th>Purpose</th><td>Ad delivery and measurement, fraud prevention, analytics</td></tr>
+      <tr><th>Retention</th><td>As set out in Google's privacy policy</td></tr>
+      <tr><th>How to refuse / consequence</th><td>Delete or reset your advertising ID and turn off ad personalisation in device settings. Nothing is sent if you are offline; rewarded ads are optional and not required to play (only "Watch an ad to continue" is unavailable).</td></tr>
+    </table>
+    <p><b>Reset your advertising ID / turn off personalised ads:</b> Phone Settings → Google → Ads (on some devices Settings → Privacy → Ads) lets you delete or reset your advertising ID and opt out of ad personalisation.
+      There are no other third-party disclosures; no analytics, crash reporters, social login or payment modules are used.</p>
 
     <h2>8. Children</h2>
-    <p>We collect no personal data, so we collect none from children.</p>
+    <p>The game is intended for users aged 18 and over. The developer does not collect names, contact details or similar data and does not knowingly collect personal information from children under 14. Ad content ratings are restricted through AdMob account settings (section 7).</p>
 
     <h2>9. Your rights</h2>
-    <p>We hold no personal data, so there is nothing to access, correct or delete on our side.
-      You can erase the game records on your device at any time as described in section 2.</p>
+    <p>The developer holds no personal data, so there is nothing to access, correct or delete on our side.
+      You can erase the game records on your device at any time as described in section 2, and for ad-related data you can reset or delete your advertising ID as described in section 7 or ask Google directly (<code>https://policies.google.com/privacy</code>).</p>
 
     <h2>10. Changes</h2>
     <p>If this policy changes, we will update the date above and describe the change here.</p>
+    <p><b>Revised 2026-10-26 (ads added):</b> Added "Watch an ad to continue" (Google AdMob rewarded ad) and corrected the earlier "nothing leaves the device" wording.
+      Added the data the ads SDK processes (section 7), internet and ad-related permissions (section 6), the transfer-abroad table (section 7),
+      how to reset your advertising ID, and the intended age (18 and over).</p>
     <p><b>Revised 2026-10-26 (previous version 2026-10-22):</b> Corrected section 4, which said the shared image contains no personal data.
       The sentence you type in "Your line" is drawn on the shared image, and the image leaves your device only when you share it yourself.
       Settings now tells you not to enter real names or personal data.</p>
