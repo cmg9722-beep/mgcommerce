@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mgcommerce.net/sitemap.xml
