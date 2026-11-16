@@ -1,3 +1,5 @@
 User-agent: *
 Allow: /
 Sitemap: https://mgcommerce.net/sitemap.xml
+
+#DaumWebMasterTool:c7b49351218682e18038a6687ddf57b6aac80cd1324737c1f31a5bf78a0538cc:CNSJIIGOISrSV2aL3hPlgQ==
