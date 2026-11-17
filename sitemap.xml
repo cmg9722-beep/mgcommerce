@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://mgcommerce.net/</loc><lastmod>2026-11-15</lastmod></url>
+  <url><loc>https://mgcommerce.net/</loc><lastmod>2026-11-18</lastmod></url>
   <url><loc>https://mgcommerce.net/shop/</loc><lastmod>2026-11-16</lastmod></url>
   <url><loc>https://mgcommerce.net/cheonki.html</loc><lastmod>2026-11-15</lastmod></url>
   <url><loc>https://mgcommerce.net/dokkaebi.html</loc><lastmod>2026-11-15</lastmod></url>
@@ -8,4 +8,10 @@
   <url><loc>https://mgcommerce.net/fusionace.html</loc><lastmod>2026-11-15</lastmod></url>
   <url><loc>https://mgcommerce.net/jeongsi.html</loc><lastmod>2026-11-15</lastmod></url>
   <url><loc>https://mgcommerce.net/ssireum.html</loc><lastmod>2026-11-15</lastmod></url>
+  <url><loc>https://mgcommerce.net/games/cheonki/</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://mgcommerce.net/games/fusionace/</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://mgcommerce.net/games/jeongsi/</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://mgcommerce.net/games/dokkaebi/</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://mgcommerce.net/games/ssireum/</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://mgcommerce.net/games/donggeul/</loc><lastmod>2026-11-18</lastmod></url>
 </urlset>
